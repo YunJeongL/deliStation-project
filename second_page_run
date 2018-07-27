@@ -1,0 +1,9 @@
+from flask import Flask, request, url_for, render_template, redirect, jsonify
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('sb2.html', title='역별 베스트 순위')
+
+if __name__ =='__main__':
+    app.run(debug=True)
