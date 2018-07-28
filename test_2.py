@@ -29,7 +29,6 @@ for name in data1['전철역명']:
 
     for i in range(1,6):
         for j in range(1,3):
-            
             # 가게이름
             m_name=driver.find_element_by_xpath('/html/body/main/article/div[2]/div/div/section/div[2]/ul/li[%s]/div[%s]/figure/figcaption/div/a/h2'% (i,j))
             m_name=m_name.text
@@ -51,34 +50,20 @@ for name in data1['전철역명']:
             tasteSoso = GB2[2]['data-review_count']
             tasteBad = GB2[3]['data-review_count']
             taste = (int(tasteSoso)+int(tasteBad))/int(tasteGood)
-            # 리뷰
-            # num_of_pagedowns=20
-            # body=driver.find_element_by_tag_name('body')
-            # while num_of_pagedowns:
-            #     body.send_keys(Keys.PAGE_DOWN)
-            #     time.sleep(1)
-            #     try:
-            #         driver.find_element_by_xpath("//section[@class='module review-container']/button[@class='btn-reivews-more']").click()
-            #     except Exception as e:
-            #         print(e)
-            #     num_of_pagedowns-=1
-
-            # reviews=[]
-            # for i in range(1,5):
-            #     reviews.append(driver.find_element_by_xpath("""/html/body/main/article/div[1]/div[1]/div/section[3]/ul/li[%s]/section/div[1]/div/div/span[1]"""%i).text)
-
-            # for i in range(6,98):
-            #     reviews.append(driver.find_element_by_xpath("""/html/body/main/article/div[1]/div[1]/div/section[3]/ul/li[%s]/section/div[1]/div/div/span"""%i).text)
-            # kkk = " ".join(reviews)
-            # nlp = Twitter()
-            # nouns = nlp.nouns(kkk)  
-            # count = Counter(nouns)
-            # tags2 = count.most_common(50)
-
             # 2차원 리스트 생성(가게명,역,평점, 호불호, 리뷰)
             all_data=[m_name,name,rating, taste]
-            data.append(all_data)
-            print(data)
+            #data.append(all_data)
+            # 파일로 저장하기
+            max_index=len(all_data)
+            output_file=sys.argv[1]
+            filewriter=open(output_file,'a') #append
+            for n in range(max_index):
+                if n<(max_index-1):
+                    filewriter.write(str(all_data[n])+',')
+                else:
+                    filewriter.write(str(all_data[n])+'\n')
+            filewriter.close()
+            #print(data)
             # 뒤로가기
             driver.back()
 
