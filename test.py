@@ -36,9 +36,9 @@ for i in range(1,6):
         rating=rating.text
         print(rating)
         #호불호
-        good=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[1]/button')
-        soso=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[2]/button')
-        bad=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[3]/button')
+        good=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[2]/button')
+        soso=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[3]/button')
+        bad=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[3]/div/ul/li[4]/button')
         good=good.text
         soso=soso.text
         bad=bad.text
