@@ -36,22 +36,32 @@ for name in data1['전철역명']:
             # 세부페이지 들어감
             driver.find_element_by_xpath('/html/body/main/article/div[2]/div/div/section/div[2]/ul/li[%s]/div[%s]/figure/figcaption/div/a/h2'% (i,j)).click()
             # 가게정보
-            
             # 평점
-            rating=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[1]/header/div[1]/span/strong/span')
-            rating=rating.text
-            #print(rating)
-            # 호불호
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
+            # rating=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[1]/header/div[1]/span/strong/span')
+            # rating=rating.text
+            try:
+                rating= soup.find('strong',{'class':'rate-point'})
+                rating=rating.text.strip()
+            except:
+                rating ='0'
+            #print(rating)
+            # 호불호
             GB = soup.find('section',{'class':'module review-container'})
             GB2 = GB.find_all('button',{'class':'review_fliter_item_btn'})
-            tasteGood = GB2[1]['data-review_count']
-            tasteSoso = GB2[2]['data-review_count']
-            tasteBad = GB2[3]['data-review_count']
-            taste = (int(tasteSoso)+int(tasteBad))/int(tasteGood)
+            try:
+                GB3=GB.find('ul',{'class':"review_fliter_list"})
+                tasteGood = GB2[1]['data-review_count']
+                if int(tasteGood) == 0:    
+                    tasteGood=1
+                tasteSoso = GB2[2]['data-review_count']
+                tasteBad = GB2[3]['data-review_count']
+                taste = (int(tasteSoso)+int(tasteBad))/int(tasteGood)
+            except:
+                taste=12345
             # 2차원 리스트 생성(가게명,역,평점, 호불호, 리뷰)
-            all_data=[m_name,name,rating, taste]
+            all_data=[m_name,name,rating,taste]
             #data.append(all_data)
             # 파일로 저장하기
             max_index=len(all_data)
