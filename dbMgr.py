@@ -78,7 +78,7 @@ def searchSql(search):
                             cursorclass=my.cursors.DictCursor)
         # 쿼리
         with conn.cursor() as cursor:
-            sql = "select name from subway where name like '%{0}%';".format(search)
+            sql = "select name from subway where name like '{0}';".format(search)
             print(sql)
             cursor.execute(sql) 
             rows = cursor.fetchall()
