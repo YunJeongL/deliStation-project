@@ -39,16 +39,23 @@ driver.get(MAIN_URL)
 
 
 for m in store:
-    driver.find_element_by_id('main-search').send_keys('%s' % m)
+
+    driver.find_element_by_id('main-search').send_keys('%s역' % m)
     # 검색 버튼 클릭
     driver.find_element_by_class_name('btn-search').click()
     # 세부 페이지 접속
     for i in range(1,6):
         for j in range(1,3):
-            driver.find_element_by_xpath('/html/body/main/article/div[2]/div/div/section/div[2]/ul/li[%s]/div[%s]/figure/figcaption/div/a/h2'% (i,j)).click()
-                # 가게이름
-            name=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[1]/header/div[1]/span/h1').text
-                # 주소
+            # 가게이름
+            try:
+                name=driver.find_element_by_xpath('/html/body/main/article/div[2]/div/div/section/div[2]/ul/li[%s]/div[%s]/figure/figcaption/div/a/h2'% (i,j)).text
+            except: name='None'
+
+            try:
+                driver.find_element_by_xpath('/html/body/main/article/div[2]/div/div/section/div[2]/ul/li[%s]/div[%s]/figure/figcaption/div/a/h2'% (i,j)).click()
+            except: pass
+
+            # 주소
             try:
                 address=driver.find_element_by_xpath('/html/body/main/article/div[1]/div[1]/div/section[1]/table/tbody/tr[1]/td').text
             except: address='None'
