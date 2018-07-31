@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for, render_template, redirect, jsonify
 from config import WebConfig
-from model.dbMgr import loginSql, searchSql, selectAllSubList
+from model.dbMgr import loginSql, searchSql, selectAllSubList, infoSql
  
 app = Flask(__name__)
 app.secret_key = 'dlghkdhlrh'
@@ -54,13 +54,22 @@ def join():
         rows = searchSql(subway)
         print(rows)
         if rows:
-            return render_template('sb2.html')
+            return render_template('sb2.html', search=subway)
         else:
             return '''
             <script>
-                alert("검색 결과가 없어서 되돌아갑니다!");
+                alert("정확한 역 이름으로 검색해주세요!");
                 history.back();
             </script>'''
+
+@app.route('/third', methods=['GET','POST'])
+def detail():
+    if request.method == 'GET':
+        return render_template('third.html')
+        
+        
+
+
 
 if __name__ == '__main__':
     app.run(debug=config.debug)

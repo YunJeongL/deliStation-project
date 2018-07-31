@@ -21,10 +21,10 @@ def loginSql(search):
     rows = None
     try:
         # 디비 오픈
-        conn = my.connect(host='127.0.0.1',
+        conn = my.connect(host='pythondb.cmaj6n5zdti4.ap-northeast-2.rds.amazonaws.com',
                             #port = '3307'(포트가 다른 사람은 변경),
                             user='root',
-                            password='1419',
+                            password='dlghk1419',
                             db='pythondb',
                             charset='utf8',
                             cursorclass=my.cursors.DictCursor)
@@ -94,15 +94,56 @@ def searchSql(search):
     finally:
         return rows
 
-# 팀 검색
+# 3페이지
+def infoSql(store,star):
+    rows = None
+    try:
+        # 디비 오픈
+        conn = my.connect(host='pythondb.cmaj6n5zdti4.ap-northeast-2.rds.amazonaws.com',
+                            #port = '3307'(포트가 다른 사람은 변경),
+                            user='root',
+                            password='dlghk1419',
+                            db='pythondb',
+                            charset='utf8',
+                            cursorclass=my.cursors.DictCursor)
+        #####################################################
+        # 쿼리 수행 절차
+        # 1. 커서 획득
+        with conn.cursor() as cursor:
+            # 2. sql 준비
+            sql = "select store,star from marketInfo where store,star like '{0},{1}';".format(store,star)
+            # %s => '값'
+            # 3. 쿼리 수행
+            cursor.execute(sql, (store,star)) 
+            # 4. select => 결과 집합이 리턴됨 => 결과 패치
+            rows = cursor.fetchall()
+            # 멀티라는, 즉 이름만 출력되게 작성
+            #print(rows)
+            #for row in rows:
+            #    print(row['name'])
+            # 5. 커서 닫기 -> 자동처리
+            #cursor.close()
+        #####################################################
+        # 디비 닫기
+        conn.close()
+
+    except Exception as e:
+        print(e)
+    
+    #else
+    
+    finally:
+        return rows
+        
+# 가게 이름 불러
 def selectSubName(name):
     rows = None
     try:
         # 디비 오픈
-        conn = my.connect(host='127.0.0.1',
+        conn = my.connect(host='pythondb.cmaj6n5zdti4.ap-northeast-2.rds.amazonaws.com',
                             #port = '3307'(포트가 다른 사람은 변경),
                             user='root',
-                            password='1419',
+                            password='dlghk1419',
                             db='pythondb',
                             charset='utf8',
                             cursorclass=my.cursors.DictCursor)
@@ -132,10 +173,10 @@ def selectAllSubList(stdCol='num', order='asc', page=0, amt=10):
     rows = None
     try:
         # 디비 오픈
-        conn = my.connect(host='127.0.0.1',
+        conn = my.connect(host='pythondb.cmaj6n5zdti4.ap-northeast-2.rds.amazonaws.com',
                             #port = '3307'(포트가 다른 사람은 변경),
                             user='root',
-                            password='1419',
+                            password='dlghk1419',
                             db='pythondb',
                             charset='utf8',
                             cursorclass=my.cursors.DictCursor)
