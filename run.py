@@ -46,15 +46,18 @@ driver.get(url)
 for i in store:
     #print(i)
     driver.find_element_by_xpath('/html/body//span[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').send_keys(i);
-    time.sleep(1.3)
+    time.sleep(2)
     try:
         count = driver.find_element_by_xpath('/html/body//span[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[2]/div[2]/div/a[1]/div/div/div[2]/span/span').text
-        driver.find_element_by_xpath('/html/body//span[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').clear();    wait = WebDriverWait(driver, 10)
-        insta=[i,count.replace(",","")]
-        print(insta)
+        driver.find_element_by_xpath('/html/body//span[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').clear();    
 
     except:
-        count='None'
+        count='None,'
+        driver.find_element_by_xpath('/html/body//span[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').clear();
+
+    insta=[i,count.replace(",","")]
+    print(insta)
+
 
     with open('insta_k.csv', 'a') as f:
         f.write(str(insta)+'\n')
