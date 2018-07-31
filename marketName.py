@@ -15,7 +15,7 @@ MAIN_URL='http://www.mangoplate.com/'
 
 k = []
 store = []
-file = open('C:/Users/USER/Desktop/marketName.csv','r')     # 가게이름 csv파일 경로
+file = open('marketName.csv','r',encoding='utf-8')     # 가게이름 csv파일 경로
 csvReader = csv.reader(file)
 for row in csvReader:
     k.append(row)    
@@ -32,6 +32,9 @@ while True:                                                 # store 리스트 �
     except ValueError:
         break        
 
+
 print(store)
 print('='*50)
 print(len(store))
+
+if 
