@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 #환경설정 클래스 모듈 가져오기
 #from service.config import WebConfig
-# from service.model.dbMgr import loginSql, searchSql, selectAllEplList
+from service.model.dbMgr import loginSql, searchSql, selectAllEplList
 
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app.secret_key = 'asdgashdfgsdfgsga'
 #config = WebConfig()
 
 #홈페이지
-@app.route('/3page')
+@app.route('/')
 def third_page():
     return render_template('3page.html')
 
