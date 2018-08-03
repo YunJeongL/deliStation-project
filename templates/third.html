@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "common/head.html"%}
+    <link rel ="stylesheet" href="static/css/style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+<style>
+
+#header-area{
+  border-bottom: solid 5px green;
+  text-align: center;
+  
+}
+#information{
+  margin: 30px ;
+  width:1278.4px;
+  height:500px;
+  
+  overflow: hidden;
+}
+.with-bg-size1 {
+  background-image: url('https://scontent-atl3-1.cdninstagram.com/vp/79a75aeb7af8db23f8dab6a1c9e009d3/5BE027B5/t51.2885-15/e35/34125601_264504114287686_6628824018948456448_n.jpg'); 
+  width: 400px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}
+  
+body{
+    width: 1278.4px;
+    margin:0 auto;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<body>
+  <div id="header-area">
+        <h1>상세정보</h1>
+ </div>
+<div id="information">
+ 
+
+    <div class="row"> 
+      <div class="col-7">
+      <div class="section" style="margin-left: 10%; margin-top:10%">
+        <header>
+          <div>
+            <span class="title">
+              <h1 class="restaurant_name">{{marketName.name}} <span style="font-size:100%; color: green"><img style="margin-bottom: 2%; " width="7%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTavkA9EZNBpw2Uy29ILxncRkZ5oRdPaNO2p_isD8HpjgP0K2r"> {{marketName.rank}}</span></h1>
+
+              <hr width="90%" align="left">
+
+              <p class="branch"></p>
+            </span>
+          </div>
+        </header>
+
+        <!-- 상세 정보 -->
+        <table class="info" style="height: 200%">
+        
+            <tbody style="margin-top:10%" >
+                  <tr class="only-desktop">
+                    <th style="color:gray" width=150 >주소</th>
+                    <td >{{marketName.address}}</td>
+                  </tr>
+      
+                  <tr class="only-desktop" height=30>
+                    <th style="color:gray">전화번호</th>
+                    <td>{{marketName.phone}}</td>
+                  </tr>
+      
+                  <tr height=30>
+                    <th style="color:gray">음식 종류</th>
+                    <td>
+                      <span>{{marketName.kind}}</span>
+                    </td>
+                  </tr>
+          
+                    <tr height=30>
+                      <th style="color:gray">가격대</th>
+                      <td>{{marketName.price}}</td>
+                    </tr>
+          
+                    <tr height=30>
+                      <th style="color:gray">주차</th>
+                      <td>{{marketName.parking}}</td>
+                    </tr>
+          
+                    <tr height=30>
+                      <th style="vertical-align:top; color:gray">영업시간</th>
+                      <td>{{marketName.time}}</td>
+                    </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+    <!--사이드메뉴-->
+    <div class="border-0" style="width: 30%;margin-right:10%">
+
+        <img class="with-bg-size1" src={{marketName.img}}>
+        <div class="card-body">
+          <h4 class="card-title" style="color:green;" >리뷰에서 가장 많이 언급된 단어</h4>
+
+            <table class="table" style="margin-top:10%">
+                <tbody>
+                  <tr>
+                    <td>#{{marketName.tag1}}</td>
+                    <td>#{{marketName.tag2}}</td>
+                    <td>#{{marketName.tag3}}</td>
+                  </tr>
+                  <tr>
+                    <td>#{{marketName.tag4}}</td>
+                    <td>#{{marketName.tag5}}</td>
+                    <td>#{{marketName.tag6}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+        </div>
+        
+    </div>
+  </div>
+</div>
+{% include "common/foot.html"%} 
+</body>
+</html>

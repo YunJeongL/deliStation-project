@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <title>맛있나역 BEST TOP10 맛집 </title> -->
+  {% include "common/head.html"%}
+  <link rel ="stylesheet" href="static/css/style.css">
+  <style></style>
+</head>
+<body>
+    <!-- 대문 메인 텍스트 -->
+    <div id="header-area">
+        <h1>맛있나역 통합 BEST TOP10 맛집 리스트</h1>
+    </div>
+    <div id="content-area">
+     <h3>다음 순위는 인스타그램 언급도를 반영하여 통합된 순위입니다.</h3>
+      
+     <!-- 역 이름 적용란 -->
+     <div class="icon">
+        <h2>{{subway}}역으로 검색한 결과입니다.<h2>
+          </div>
+        </br>
+      </br>
+      
+            
+      <table class="table table-striped table-bordered table-hover">
+          <thead>
+          <ul>
+              <th>순위</th>
+              <th>사진링크</th>
+              <th>가게이름</th>
+              <th>평점</th>
+              <th>인스타</th>
+              <th>망고플레이트</th>
+              <!-- <th><img src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg?size=338&ext=jpg" width="60px"><p>인스타그램</p></th>
+              <th><img src="https://lh3.googleusercontent.com/OJzhHQMc08Y1yUfjdL1F1Ohv2hjqgaPwyoMMbgg12qgh0C8dZf5pNOmiLDlwJidARCi_=w300" width="60px"><p>망고플레이트</p></th> -->
+              <th>호불호</th>
+          </ul>
+          </thead>
+          <tbody>
+          <form action='/third' method='GET' name="form2" id="frm">
+          <ul>
+              {% for market in marketInfoList: %}
+                  {% for marketInfo in market: %}
+                    <tr>
+                     <!-- <td>{{marketInfo.img}}</td> -->
+                     <td>{{marketInfo.name}}<input type='button'id='frm' onclick="location.href='/third/{{marketInfo.num}}'" value='더보기..'/></td>
+                     <td>{{marketInfo.rate}}</td>
+                     <!-- <td>{{marketInfo.insta}}</td>
+                     <td>{{marketInfo.mango}}</td> -->
+                     <td>{{marketInfo.taste}}</td>
+                    </tr>
+                  {% endfor %}
+              {% endfor %}
+         </ul>
+        </form>
+        </tbody>
+      
+      
+      </table>
+        </div> 
+    {% include "common/foot.html"%} 
+    </body>
+</html>

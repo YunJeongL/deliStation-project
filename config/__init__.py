@@ -1,4 +1,4 @@
-class webconfig:
+class webConfig:
     # 멤버 변수
     title = '맛있나역'
     site_name = '역 주변 핫플레이스 정보 제공 사이트'
@@ -19,5 +19,5 @@ class webconfig:
     # 멤버 함수
     
 if __name__ == '__main__':
-    obj = webconfig() 
+    obj = webConfig() 
     print( obj.site_name )
