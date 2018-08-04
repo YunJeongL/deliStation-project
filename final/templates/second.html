@@ -3,20 +3,21 @@
 <head>
   <!-- <title>맛있나역 BEST TOP10 맛집 </title> -->
 
+  <link rel ="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   {% include "common/head.html"%}
 </head>
-<body>
+<body  margin-right: 0px>
     <!-- 대문 메인 텍스트 -->
-    <div style="margin-top: 5%; margin-bottom:3%; border-bottom: solid  rgb(253, 253, 253); text-align:center; background-color:rgb(247, 247, 247)">
-
-      <p style="text-align:center; color:gray" ><br>2018-08-02</p>
-      <h1  >{{subway}}역 추천 맛집 리스트</h1>
-      <h5 style= "text-align:center; margin-top:1%; margin-bottom:3%; color:gray">"SNS 언급도가 반영된 순위"</h5>
+    <div style="margin-top: 5%; margin-bottom:3%; border-bottom: solid rgb(253, 253, 253);text-align:center; background-color:rgb(247, 247, 247)">
+        <p style="text-align:center; color:gray" ><br>2018-08-03</p>
+    <h1  >{{subway}}역 추천 맛집 리스트</h1>
+    <h5 style= "text-align:center; margin-top:1%; margin-bottom:3%;color:gray">SNS 언급도가 반영된 순위</h5>
     </div>
+    
 
     <div class="container">
       <div class="row">
@@ -36,7 +37,9 @@
                     </il>
                     </thead> -->
                     <tbody>
-                    <form action='/third' method='GET' name="form2" id="frm">                  
+                    <form action='/third' method='GET' name="form2" id="frm"> 
+                       <div style="font-size: 200%; color:green">
+                          <img style="margin-bottom: 2%; " width="7%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTavkA9EZNBpw2Uy29ILxncRkZ5oRdPaNO2p_isD8HpjgP0K2r">10점 만점으로 선정된 맛있나역 자체 점수! </div>                 
                         {% for market in marketInfoList: %}
 
                             {% for marketInfo in market: %}
@@ -48,18 +51,18 @@
 
                                     <div class="col">    
                                       <!-- <td>{{marketInfo.img}}</td> -->
-                                      <img src="https://mp-seoul-image-production-s3.mangoplate.com/328632/1054987_1529307456391_6030?fit=around|512:512&amp;crop=512:512;*,*&amp;output-format=jpg&amp;output-quality=80"
-                                                style="width:100%; height:80%">
+                                      <img src={{marketInfo.img}}
+                                                style="width:100%; height:80%" onclick= "location.href='/third/{{marketInfo.num}}'">
                                     </div>
 
                                     <div class="col-7">  
-                                      <div onclick= "document.getElementById('frm').submit()" class="h3">{{marketInfo.name}}</div>
-                                      <div style="color:gray">주우우웅우소</div>
+                                      <div onclick= "location.href='/third/{{marketInfo.num}}'" class="h3">{{marketInfo.name}}</div>
+                                      <div style="color:gray">{{marketInfo.address}}</div>
                                       
                                         <div>
                                             <div style="font-size: 200%; color:green">
                                                 <img style="margin-bottom: 2%; " width="7%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTavkA9EZNBpw2Uy29ILxncRkZ5oRdPaNO2p_isD8HpjgP0K2r">
-                                                {{marketInfo.rate}}
+                                                {{marketInfo.rank}}
   
                                             </div>     
 
@@ -72,14 +75,14 @@
                                                 <td>{{marketInfo.mango}}</td> -->
                                             <div style="font-size: 150%; color:black">
                                                 <img style="margin-bottom: 2%" width="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png">
-                                              {{marketInfo.taste}}
+                                              {{marketInfo.insta}}
 
                                             </div>  
                                             <div style=" position:absolute; right:0px; top:20%;">
-                                              <button type="button" class="btn btn-outline-success">호불호가 없어요</button>   
+                                              <div class="btn btn-outline-success">{{marketInfo.taste}}</div>   
                                             </div>
 
-                                            <div style="font-size: 100%; position:absolute; right:0px; bottom:10%; color:gray" onclick= "document.getElementById('frm').submit()">{{marketInfo.name}} 
+                                            <div style="font-size: 100%; position:absolute; right:0px; bottom:10%; color:gray" onclick= "location.href='/third/{{marketInfo.num}}'">{{marketInfo.name}} 
                                               <div style="color:green; text-align: right">더보기 ></div>
 
                                             </div>
@@ -103,5 +106,5 @@
       </div>
     </div>
     {% include "common/foot.html"%} 
-    </body>
+  </body>
 </html>

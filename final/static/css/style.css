@@ -19,11 +19,17 @@ h1{
     }
 h4{
     text-align: right;
-}
+  }
+body{
+      width: 1278.4px;
+      margin:0 auto;
+      /* background-image: url("12.jpg"); */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 h3{
     text-align: center;
   }
-
 h5{
     text-align: center;
   }
