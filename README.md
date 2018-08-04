@@ -1,5 +1,4 @@
 # deliStation-project
-=======================
 "빅데이터를 활용한 파이썬 프로그래밍" 이라는 청년취업 아카데미 교육과정에서 진행한 팀 프로젝트입니다.   
 
 screenshots
@@ -10,7 +9,7 @@ screenshots
 </div>                      
                             
 >크게 config, model, static, templates 네 폴더로 구성이 되어있고 main.py 로 실행합니다.             
-?mainpage 접속화면               
+>mainpage 접속화면               
 <img width="960" alt="kakaotalk_20180804_153021568" src="https://user-images.githubusercontent.com/38245918/43673520-fe400fe0-97b3-11e8-8045-bf11095cf368.png">         
 >호선별 역 정보를 알 수 있습니다         
 <div>        
