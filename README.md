@@ -1,6 +1,6 @@
 # deliStation-project
 "빅데이터를 활용한 파이썬 프로그래밍" 이라는 청년취업 아카데미 교육과정에서 진행한 팀 프로젝트입니다.
-#screenshots
+screenshots
 -----------
 <div>
 <img width="300" alt="kakaotalk_20180804_152134378" src="https://user-images.githubusercontent.com/38245918/43673238-b70e1496-97ae-11e8-9362-61bc24d60722.png">
