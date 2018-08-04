@@ -26,5 +26,5 @@ mainpage 접속화면
 <img width="430" alt="kakaotalk_20180804_153620047" src="https://user-images.githubusercontent.com/38245918/43673537-3d9417ea-97b4-11e8-829f-5f12c19612b2.png">
 </div>
 
-*맛집에 대한 세부정보입니다. 오른쪽 아래 태그는 망고플레이트 리뷰들을 크롤링 한 결과 나타나는 언급도가 높은 단어 6가지를 해시태그 형식으로 나타냈습니다.                    
+맛집에 대한 세부정보입니다. 오른쪽 아래 태그는 망고플레이트 리뷰들을 크롤링 한 결과 나타나는 언급도가 높은 단어 6가지를 해시태그 형식으로 나타냈습니다.                    
 <img width="960" alt="kakaotalk_20180804_153649113" src="https://user-images.githubusercontent.com/38245918/43673420-7373b28c-97b2-11e8-8212-931954ca1eb1.png">
