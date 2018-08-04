@@ -6,7 +6,7 @@ screenshots
   <img width="300" alt="kakaotalk_20180804_152134378" src="https://user-images.githubusercontent.com/38245918/43673238-b70e1496-97ae-11e8-9362-61bc24d60722.png">
 <img width="300" alt="kakaotalk_20180804_152316552" src="https://user-images.githubusercontent.com/38245918/43673246-ec69e62e-97ae-11e8-9e90-531db7b15ae8.png">
   </div>
-실제 구동화면 screenshots
+#실제 구동화면 screenshots
 --------------------------
 #### 크게 config, model, static, templates 네 폴더로 구성이 되어있고 main.py 로 실행합니다.
 ## mainpage 접속화면
